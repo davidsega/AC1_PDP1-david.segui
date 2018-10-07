@@ -35,6 +35,7 @@ int main (int argc,char* argv[]){
     printf("avansa llista\nelement: %d\n",LlistaBIDord_Consulta(l));
   }
   LlistaBIDord_VesFi(&l);
+  printf("Final de la llista\n");
   printf("element: %d\n",LlistaBIDord_Consulta(l));
   while(LlistaBIDord_Inici(l) != 1){
     LlistaBIDord_Retrocedeix(&l);
