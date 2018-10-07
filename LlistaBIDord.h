@@ -1,3 +1,8 @@
+// Programa:		LlistaBIdord
+// Descripción:		EX1 LlistaBIDord
+// Autor:			David Seguí
+// Fecha ult. modifcación: 07/10/2018
+//
 #ifndef _LLISTABIDORD_H
 
 	#define _LLISTABIDORD_H
