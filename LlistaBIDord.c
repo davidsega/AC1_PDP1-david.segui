@@ -1,10 +1,21 @@
+// Programa:		LlistaBIdord
+// Descripción:		EX1 LlistaBIDord
+// Autor:			David Seguí
+// Fecha ult. modifcación: 07/10/2018
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "LlistaBIDord.h"
+//--------------------- CONSTANTS DE LA LLISTA  ------------------------------
 #define VALOR_INDEFINIT -12345;
 
 
+//----------------------------------------------------------------------------
+/**
+ * Funcio que inicialitza la LlistaBIDord, afegeix els Nodes de pri i ult i
+ * deixa la Llista llesta per ser utilitzada
+ * @return LlistaBIDord l;
+ */
 LlistaBIDord LlistaBIDord_Crea(){
   Node * aux = NULL;
   LlistaBIDord l;
@@ -27,7 +38,11 @@ LlistaBIDord LlistaBIDord_Crea(){
   }
   return l;
 }
-
+/**
+ * Procediment que insereix un element en la llista ordenat de menor a major
+ * @param l punters a la Llista pasats per referencia
+ * @param e element a inserir en la Llsita
+ */
 void LlistaBIDord_Insereix(LlistaBIDord*l,int e){ //INSERCIO PER L'ESQUERRA
   Node* aux;
   aux = (Node*)malloc(sizeof(Node));
@@ -53,7 +68,11 @@ void LlistaBIDord_Insereix(LlistaBIDord*l,int e){ //INSERCIO PER L'ESQUERRA
     }
   }
 }
-
+/**
+ * Funcio que consulta l'element on es troba el pdi i el retorna
+ * @param  l punters a la Llista passats per referencia
+ * @return  int e element de la llista on es troba el pdi
+ */
 int LlistaBIDord_Consulta(LlistaBIDord l){
   if(l.pdi != l.ult || l.pdi != l.pri){
     return l.pdi->e;
@@ -63,6 +82,10 @@ int LlistaBIDord_Consulta(LlistaBIDord l){
   }
 }
 
+/**
+ * Procediment que Borra l'element on es troba el pdi
+ * @param l punters a la Llista passats per referencia
+ */
 void LlistaBIDord_Esborra(LlistaBIDord*l){
   if((l->pdi != l->ult) || (l->pdi != l->pri)){
     Node* aux;
@@ -77,14 +100,21 @@ void LlistaBIDord_Esborra(LlistaBIDord*l){
     printf("No s'ha pogut esborrar cap element, el pdi es troba a l'inici o al final de la llista \n");
   }
 }
+/**
+ * Procediment que avansa una posicio el pdi en la llista
+ * @param l punters a la Llista passats per referencia
+ */
 void LlistaBIDord_Avansa(LlistaBIDord*l){
   if(l->pdi->seg != l->ult){
       l->pdi = l->pdi->seg;
   }else{
     printf("No es pot avançar en la llista, aquesta es troba al final");
   }
-
 }
+/**
+ * Procediment que retrocedeix un element el pdi en la llista
+ * @param l punters a la Llista passats per referencia
+ */
 void LlistaBIDord_Retrocedeix(LlistaBIDord*l){
   if(l->pdi->ant != l->pri){
       l->pdi= l->pdi->ant;
@@ -92,19 +122,41 @@ void LlistaBIDord_Retrocedeix(LlistaBIDord*l){
       printf("No es pot retrocedir en la llista, aquesta es troba al inici");
     }
 }
+/**
+ * Procediment que situa el pdi en el primer element de la Llista
+ * @param l punters a la Llista passats per referencia
+ */
 void LlistaBIDord_VesInici(LlistaBIDord*l){
   l->pdi =l->pri->seg;
 }
+/**
+ * Procediment que situa el pdi en l'ultim element de la llista
+ * @param l punters a la Llista passats per referencia
+ */
 void LlistaBIDord_VesFi(LlistaBIDord*l){
   l->pdi= l->ult->ant;
 }
+/**
+ * Funcio que consulta si la llista es troba en l'inici
+ * @param  l Llista passada per valor
+ * @return  comprova si la llsita es a l'inici
+ */
 int LlistaBIDord_Fi(LlistaBIDord l){
   return (l.ult == l.pdi->seg);
 }
+/**
+ * Funcio que consulta si la llista es troba en l'ultim element
+ * @param  l Llista passada per valor
+ * @return comprova si la llsita es troba al final
+ */
 int LlistaBIDord_Inici(LlistaBIDord l){
     return (l.pri == l.pdi->ant);
 }
-
+/**
+ * Funcio que retorna cert si la llista es buida
+ * @param  l Llista passada per valor
+ * @return int comprova si la llsita es buida
+ */
 int LlistaBIDord_Buida(LlistaBIDord l){
   if(l.ult != NULL){
     if((l.pri->seg ==l.ult)){
@@ -115,6 +167,10 @@ int LlistaBIDord_Buida(LlistaBIDord l){
   }
 }
 
+/**
+ * Procediment que destrueix la Llista
+ * @param l punters a la Llista passats per referencia
+ */
 void LlistaBIDord_Destrueix(LlistaBIDord* l){
   Node* aux;
   l->pdi = l->pri;
