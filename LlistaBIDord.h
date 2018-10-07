@@ -27,8 +27,8 @@ void LlistaBIDord_Avansa(LlistaBIDord*l);
 void LlistaBIDord_Retrocedeix(LlistaBIDord*l);
 void LlistaBIDord_VesInici(LlistaBIDord*l);
 void LlistaBIDord_VesFi(LlistaBIDord*l);
-void LlistaBIDord_Inici(LlistaBIDord*l);
-void LlistaBIDord_Fi(LlistaBIDord*l);
+int LlistaBIDord_Inici(LlistaBIDord l);
+int LlistaBIDord_Fi(LlistaBIDord l);
 int LlistaBDIord_Buida(LlistaBIDord l);
 void LlistaBIDord_Destrueix(LlistaBIDord* l);
 #endif
