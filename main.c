@@ -1,9 +1,22 @@
+// Programa:		main
+// Descripción:		EX1 LlistaBIDord
+// Autor:			David Seguí
+// Fecha ult. modifcación: 07/10/2018
+//--------------------  LLIBRERIES ------------------------------
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+//----------------------- LLIBRERIES PROPIES --------------------
 #include "LlistaBIDord.h"
 
+
+/**
+ * El main del programa per fer el testing realitza el següent procediment
+ * insereix elements en la llista, n'elimina 1 y la recorre consultant
+ * si els elements es troben ordenaats i despres la recorre de final cap a inici
+ * @param  argc,argv Parametres d'entrada (no s'ha utilitzat cap)
+ * @return      int finalitza el main
+ */
 int main (int argc,char* argv[]){
   int i = 0;
   LlistaBIDord l;
@@ -35,6 +48,11 @@ int main (int argc,char* argv[]){
   }
   return 0;
 }
+/**
+ * Funcio que insereix elements en la LlistaBID
+ * @param l     punters a la Llista passats per referencia
+ * @param valor valor a inserir a la llista
+ */
 void InsereixElement(LlistaBIDord* l,int valor){
 	printf("Inserim %d\n",valor);
 	LlistaBIDord_Insereix(l,valor);
