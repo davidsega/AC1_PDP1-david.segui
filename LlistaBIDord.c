@@ -43,7 +43,7 @@ void LlistaBIDord_Insereix(LlistaBIDord*l,int e){ //INSERCIO PER L'ESQUERRA
     }else{
       Node*aux2;
       aux2 = l->pri->seg;
-      while(e>aux2->e || (aux2->seg != l->ult)){
+      while((e<aux2->e) ^ (aux2->seg != NULL)){
         aux2 = aux2->seg;
       }
       aux->seg = aux2;
@@ -64,7 +64,7 @@ int LlistaBIDord_Consulta(LlistaBIDord l){
 }
 
 void LlistaBIDord_Esborra(LlistaBIDord*l){
-  if((l->pdi != l->ult) ^ (l->pdi != l->pri)){
+  if((l->pdi != l->ult) || (l->pdi != l->pri)){
     Node* aux;
     aux = l->pdi;
     l->pdi->ant->seg= l->pdi->seg;
@@ -99,10 +99,10 @@ void LlistaBIDord_VesFi(LlistaBIDord*l){
   l->pdi= l->ult->ant;
 }
 int LlistaBIDord_Fi(LlistaBIDord l){
-  return (l.ult == l.pdi);
+  return (l.ult == l.pdi->seg);
 }
 int LlistaBIDord_Inici(LlistaBIDord l){
-    return (l.pri == l.pdi);
+    return (l.pri == l.pdi->ant);
 }
 
 int LlistaBIDord_Buida(LlistaBIDord l){
