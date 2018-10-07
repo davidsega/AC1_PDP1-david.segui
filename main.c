@@ -8,10 +8,10 @@ int main (int argc,char* argv[]){
   int i = 0;
   LlistaBIDord l;
   l= LlistaBIDord_Crea();
-  LlistaBIDord_Insereix(&l,1);
-  LlistaBIDord_Insereix(&l,10);
-  LlistaBIDord_Insereix(&l,4);
-  LlistaBIDord_Insereix(&l,8);
+  InsereixElement(&l,1);
+  InsereixElement(&l,10);
+  InsereixElement(&l,4);
+  InsereixElement(&l,8);
   LlistaBIDord_VesInici(&l);
   printf("Inici de la llista\n");
   printf("element esborrat: %d\n",LlistaBIDord_Consulta(l));
@@ -34,4 +34,8 @@ int main (int argc,char* argv[]){
     printf("Error en l'eliminació de la llista\n" );
   }
   return 0;
+}
+void InsereixElement(LlistaBIDord* l,int valor){
+	printf("Inserim %d\n",valor);
+	LlistaBIDord_Insereix(l,valor);
 }
